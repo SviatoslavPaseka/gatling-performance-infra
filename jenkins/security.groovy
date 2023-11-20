@@ -16,4 +16,4 @@ strategy.setAllowAnonymousRead(false)
 instance.setAuthorizationStrategy(strategy)
 instance.save()
 
-Jenkins.instance.getInjector().getInstance(AdminWhitelistRule.class).setMasterKillSwitch(false)
+//Jenkins.instance.getInjector().getInstance(AdminWhitelistRule.class).setMasterKillSwitch(true)

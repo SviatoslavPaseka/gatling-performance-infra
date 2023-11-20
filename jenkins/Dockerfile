@@ -11,6 +11,7 @@ USER root
 RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt && \
 apt-get -y update && \
 apt-get -y install sudo && \
+apt-get -y install jq && \
 sudo usermod -aG staff jenkins && \
 echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ENV PATH "$PATH:/usr/local/bin/dind/"

@@ -39,7 +39,6 @@ class FirstSimulation extends Simulation {
     ).exec(session => {
       val responseBody = session("responseBody").as[String] // Retrieve the response body from the session
       println(s"------Response Body /eshop/control/category/all: ------\n" + JsonFormatter.formatJson(responseBody)) // Print the response body
-
       session
     }).exec(
       http("category-2")
@@ -77,7 +76,7 @@ class FirstSimulation extends Simulation {
         ).check(bodyString.saveAs("responseBody"))
     ).exec(
       http("getInfo")
-        .get("/eshop/control/category/2/products")
+        .get("/eshop/control/cart/getInfo")
         .headers(headers_general)
         .check(
           status is 200,
@@ -87,7 +86,7 @@ class FirstSimulation extends Simulation {
         .check(bodyString.saveAs("responseBody"))
     ).exec(session => {
       val responseBody = session("responseBody").as[String] // Retrieve the response body from the session
-      println(s"------Response Body /eshop/control/category/2/products: ------\n" + JsonFormatter.formatJson(responseBody)) // Print the response body
+      println(s"------Response Body /eshop/control/cart/getInfo: ------\n" + JsonFormatter.formatJson(responseBody)) // Print the response body
 
       session
     }).exec(
